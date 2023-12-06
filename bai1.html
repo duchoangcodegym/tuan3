@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function add(a, b) {
+     return a + b;
+    }
+    function subtract(a, b) {
+     return a - b;
+    } 
+    function multiply(a, b) {
+     return a * b;
+    }
+    function divide(a, b) {
+     if (b === 0) {
+        throw new Error("Cannot divide by zero");
+     }
+     return a / b;
+    }
+    function main() {
+     
+     let num1 = parseFloat(prompt("Nhập số đầu: "));
+     let operation = prompt("nhập dấu (+, -): ").trim();  
+     let num2 = parseFloat(prompt("nhập số: "));    
+     switch (operation) {
+        case "+":
+          result = add(num1, num2);
+          break;
+        case "-":
+          result = subtract(num1, num2);
+          break;
+        
+          try {
+            result = divide(num1, num2);
+          } catch (error) {
+            alert("Error: " + error.message);
+            return;
+          }
+          break;
+        default:
+          alert("Invalid operation. Please try again.");
+          return;
+     }
+     alert(`The result of ${num1} ${operation} ${num2} is ${result}`);
+    }
+    main();</script>
+<body>
+    
+</body>
+</html>
